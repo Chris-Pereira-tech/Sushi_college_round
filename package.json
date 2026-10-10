@@ -1,0 +1,23 @@
+{
+  "name": "patchwork",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "flows"
+  ],
+  "scripts": {
+    "demo": "concurrently -n demo,server,dash -c blue,green,magenta \"npm run dev -w apps/demo-site\" \"npm run dev -w apps/server\" \"npm run dev -w apps/dashboard\"",
+    "seed": "tsx apps/server/src/seed.ts",
+    "typecheck": "tsc --build",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "playwright": "^1.64.0",
+    "tsx": "^4.19.4",
+    "typescript": "^5.7.3",
+    "vitest": "^3.2.1"
+  }
+}

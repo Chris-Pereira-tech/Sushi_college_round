@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechMart - v1</title>
+  <link rel="stylesheet" href="/shared/styles.css">
+</head>
+<body>
+  <div id="toast" class="toast">Order placed successfully!</div>
+  
+  <header class="header">
+    <div class="logo">TechMart</div>
+    <div class="cart-icon">
+      🛒 <span class="cart-count">2</span>
+    </div>
+  </header>
+
+  <div class="container">
+    <main class="main-content">
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-image" style="background-color: #fca5a5;"></div>
+          <div class="product-info">
+            <h3 class="product-title">Wireless Headphones</h3>
+            <div class="product-price">$79.99</div>
+            <button class="btn-add">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image" style="background-color: #93c5fd;"></div>
+          <div class="product-info">
+            <h3 class="product-title">Smart Watch</h3>
+            <div class="product-price">$199.99</div>
+            <button class="btn-add">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image" style="background-color: #86efac;"></div>
+          <div class="product-info">
+            <h3 class="product-title">USB-C Hub</h3>
+            <div class="product-price">$49.99</div>
+            <button class="btn-add">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="sidebar">
+      <div class="cart-panel">
+        <h2 class="cart-title">Your Cart</h2>
+        <div class="cart-items">
+          <div class="cart-item">
+            <span>Wireless Headphones</span>
+            <span>$79.99</span>
+          </div>
+          <div class="cart-item">
+            <span>USB-C Hub</span>
+            <span>$49.99</span>
+          </div>
+        </div>
+        <div class="cart-total">
+          <span>Total</span>
+          <span>$129.98</span>
+        </div>
+        <div class="cart-actions">
+          <button id="checkout-btn" class="btn-checkout">Checkout</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    TechMart &copy; 2024 &mdash; Demo Store v1
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const checkoutBtn = document.getElementById('checkout-btn');
+      const toast = document.getElementById('toast');
+
+      if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', (e) => {
+          toast.classList.add('show');
+          checkoutBtn.disabled = true;
+          checkoutBtn.textContent = 'Processing...';
+          
+          setTimeout(() => {
+            toast.classList.remove('show');
+          }, 3000);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
