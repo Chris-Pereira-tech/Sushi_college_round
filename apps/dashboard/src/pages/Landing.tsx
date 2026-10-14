@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Footer } from '../components/Footer';
+import { Dynamic3DCore } from '../components/landing/Dynamic3DCore';
+import { Dynamic3DPuzzlePiece } from '../components/landing/Dynamic3DPuzzlePiece';
 
 export function Landing() {
   return (
@@ -18,12 +20,21 @@ export function Landing() {
         }}
       />
 
+      {/* Dynamic 3D Interactive Cyber Core */}
+      <Dynamic3DCore />
+
       {/* Interlocking 3D Puzzle Pieces Environment Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
         {/* Top-Left Interlocking Cluster: Piece 1 (Anchor Piece) */}
-        <div
-          className="absolute top-12 left-4 sm:left-12 md:left-20 w-44 sm:w-52 pointer-events-auto floating-piece group cursor-pointer"
-          style={{ transform: 'perspective(1000px) rotateX(10deg) rotateY(-14deg) rotateZ(-6deg)' }}
+        <Dynamic3DPuzzlePiece
+          baseRotateX={10}
+          baseRotateY={-14}
+          baseRotateZ={-6}
+          depth={1.1}
+          floatSpeed={0.9}
+          floatAmp={7}
+          phaseOffset={0}
+          className="absolute top-12 left-4 sm:left-12 md:left-20 w-44 sm:w-52 pointer-events-auto group cursor-pointer"
         >
           <div className="relative p-4 rounded-2xl cyber-glass border border-primary-container/40 shadow-[0_8px_32px_rgba(255,59,129,0.15)] group-hover:border-primary-container group-hover:shadow-[0_0_25px_rgba(255,59,129,0.4)] transition-all">
             {/* Jigsaw connector tab on right */}
@@ -38,12 +49,18 @@ export function Landing() {
               <span className="text-[#10b981] font-semibold">99.8% match</span>
             </p>
           </div>
-        </div>
+        </Dynamic3DPuzzlePiece>
 
         {/* Top-Left Interlocking Cluster: Piece 2 (Interlocked Partner) */}
-        <div
-          className="absolute top-28 left-40 sm:left-56 md:left-64 w-40 sm:w-48 pointer-events-auto floating-piece group cursor-pointer"
-          style={{ transform: 'perspective(1000px) rotateX(12deg) rotateY(-8deg) rotateZ(4deg)' }}
+        <Dynamic3DPuzzlePiece
+          baseRotateX={12}
+          baseRotateY={-8}
+          baseRotateZ={4}
+          depth={0.9}
+          floatSpeed={1.15}
+          floatAmp={5}
+          phaseOffset={1.6}
+          className="absolute top-28 left-40 sm:left-56 md:left-64 w-40 sm:w-48 pointer-events-auto group cursor-pointer"
         >
           <div className="relative p-3.5 rounded-2xl cyber-glass border border-outline-variant/50 shadow-lg group-hover:border-primary-container/80 transition-all">
             {/* Jigsaw connector indent on left */}
@@ -54,12 +71,18 @@ export function Landing() {
             </div>
             <p className="font-mono text-[11px] text-[#ffb0cf] truncate">style: &#123; bg: #ff3b81 &#125;</p>
           </div>
-        </div>
+        </Dynamic3DPuzzlePiece>
 
         {/* Top-Right Floating Puzzle Piece */}
-        <div
-          className="absolute top-16 right-4 sm:right-16 md:right-28 w-44 sm:w-52 pointer-events-auto floating-piece group cursor-pointer"
-          style={{ transform: 'perspective(1000px) rotateX(14deg) rotateY(16deg) rotateZ(8deg)' }}
+        <Dynamic3DPuzzlePiece
+          baseRotateX={14}
+          baseRotateY={16}
+          baseRotateZ={8}
+          depth={1.2}
+          floatSpeed={0.85}
+          floatAmp={8}
+          phaseOffset={3.1}
+          className="absolute top-16 right-4 sm:right-16 md:right-28 w-44 sm:w-52 pointer-events-auto group cursor-pointer"
         >
           <div className="relative p-4 rounded-2xl cyber-glass border border-secondary-container/60 shadow-[0_8px_32px_rgba(125,42,83,0.3)] group-hover:border-secondary transition-all">
             {/* Jigsaw connector tab on bottom */}
@@ -71,12 +94,18 @@ export function Landing() {
             <p className="font-mono text-xs text-white font-bold truncate">Self-Healing DOM Engine</p>
             <p className="font-mono text-[10px] text-outline mt-1">Zero rebuild redeploy</p>
           </div>
-        </div>
+        </Dynamic3DPuzzlePiece>
 
         {/* Bottom-Left Floating Puzzle Piece */}
-        <div
-          className="absolute bottom-24 left-6 sm:left-16 md:left-24 w-44 sm:w-48 pointer-events-auto floating-piece group cursor-pointer hidden sm:block"
-          style={{ transform: 'perspective(1000px) rotateX(-8deg) rotateY(-12deg) rotateZ(6deg)' }}
+        <Dynamic3DPuzzlePiece
+          baseRotateX={-8}
+          baseRotateY={-12}
+          baseRotateZ={6}
+          depth={0.85}
+          floatSpeed={1.05}
+          floatAmp={6}
+          phaseOffset={4.4}
+          className="absolute bottom-24 left-6 sm:left-16 md:left-24 w-44 sm:w-48 pointer-events-auto group cursor-pointer hidden sm:block"
         >
           <div className="relative p-3.5 rounded-2xl cyber-glass border border-outline-variant/40 shadow-lg group-hover:border-primary-container/60 transition-all">
             {/* Jigsaw connector tab on top */}
@@ -87,12 +116,18 @@ export function Landing() {
             </div>
             <p className="font-mono text-[11px] text-on-surface-variant">Pixel diff: 0.00%</p>
           </div>
-        </div>
+        </Dynamic3DPuzzlePiece>
 
         {/* Bottom-Right Interlocking Pair */}
-        <div
-          className="absolute bottom-28 right-8 sm:right-20 md:right-32 w-48 sm:w-56 pointer-events-auto floating-piece group cursor-pointer hidden sm:block"
-          style={{ transform: 'perspective(1000px) rotateX(-10deg) rotateY(14deg) rotateZ(-8deg)' }}
+        <Dynamic3DPuzzlePiece
+          baseRotateX={-10}
+          baseRotateY={14}
+          baseRotateZ={-8}
+          depth={1.25}
+          floatSpeed={0.92}
+          floatAmp={7}
+          phaseOffset={5.8}
+          className="absolute bottom-28 right-8 sm:right-20 md:right-32 w-48 sm:w-56 pointer-events-auto group cursor-pointer hidden sm:block"
         >
           <div className="relative p-4 rounded-2xl cyber-glass border border-primary-container/30 shadow-[0_8px_32px_rgba(255,59,129,0.12)] group-hover:border-primary-container group-hover:shadow-[0_0_25px_rgba(255,59,129,0.35)] transition-all">
             {/* Jigsaw connector tab on left */}
@@ -104,7 +139,7 @@ export function Landing() {
             <p className="font-mono text-xs text-white font-bold truncate">Audit: cryptographically signed</p>
             <p className="font-mono text-[10px] text-outline mt-1">Instant 1-click revert</p>
           </div>
-        </div>
+        </Dynamic3DPuzzlePiece>
       </div>
 
       {/* Hero Main */}
