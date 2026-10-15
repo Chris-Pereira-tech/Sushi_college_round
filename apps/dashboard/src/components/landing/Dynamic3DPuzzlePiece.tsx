@@ -54,10 +54,10 @@ export function Dynamic3DPuzzlePiece({
       const nx = (e.clientX - w / 2) / (w / 2);
       const ny = (e.clientY - h / 2) / (h / 2);
 
-      targetOffsetX = nx * 22 * depth;
-      targetOffsetY = ny * 18 * depth;
-      targetTiltX = -ny * 12;
-      targetTiltY = nx * 14;
+      targetOffsetX = nx * 10 * depth;
+      targetOffsetY = ny * 8 * depth;
+      targetTiltX = -ny * 8;
+      targetTiltY = nx * 10;
 
       if (el) {
         const rect = el.getBoundingClientRect();
@@ -92,16 +92,16 @@ export function Dynamic3DPuzzlePiece({
       // Gentle continuous 3D sine-wave levitation
       const levY = Math.sin(elapsed * floatSpeed + phaseOffset) * floatAmp;
       const levZ = Math.cos(elapsed * floatSpeed * 0.8 + phaseOffset) * (floatAmp * 0.5);
-      const levRotZ = Math.sin(elapsed * floatSpeed * 0.6 + phaseOffset) * 1.5;
+      const levRotZ = Math.sin(elapsed * floatSpeed * 0.6 + phaseOffset) * 1.0;
 
       const totalX = currentOffsetX;
       const totalY = currentOffsetY + levY;
-      const totalZ = isHovered ? levZ + 35 : levZ;
+      const totalZ = isHovered ? levZ + 25 : levZ;
 
       const finalRotX = baseRotateX + currentTiltX * (isHovered ? 0.3 : 1.0);
       const finalRotY = baseRotateY + currentTiltY * (isHovered ? 0.3 : 1.0);
       const finalRotZ = baseRotateZ + levRotZ;
-      const scale = isHovered ? 1.04 : 1.0;
+      const scale = isHovered ? 1.03 : 1.0;
 
       el.style.transform = `perspective(1200px) translate3d(${totalX.toFixed(2)}px, ${totalY.toFixed(2)}px, ${totalZ.toFixed(2)}px) rotateX(${finalRotX.toFixed(2)}deg) rotateY(${finalRotY.toFixed(2)}deg) rotateZ(${finalRotZ.toFixed(2)}deg) scale(${scale})`;
 
@@ -116,10 +116,12 @@ export function Dynamic3DPuzzlePiece({
     };
   }, [baseRotateX, baseRotateY, baseRotateZ, depth, floatAmp, floatSpeed, phaseOffset]);
 
+  const hasPosition = className.includes('absolute') || className.includes('fixed');
+
   return (
     <div
       ref={containerRef}
-      className={`will-change-transform transition-shadow duration-300 relative ${className}`}
+      className={`will-change-transform transition-shadow duration-300 ${hasPosition ? '' : 'relative'} ${className}`}
       style={{
         transformStyle: 'preserve-3d',
       }}

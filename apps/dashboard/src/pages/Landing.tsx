@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Footer } from '../components/Footer';
-import { Puzzle3DScene } from '../components/landing/Puzzle3DScene';
+import { Dynamic3DCore } from '../components/landing/Dynamic3DCore';
 import { Dynamic3DPuzzlePiece } from '../components/landing/Dynamic3DPuzzlePiece';
 
 export function Landing() {
@@ -20,31 +20,29 @@ export function Landing() {
         }}
       />
 
-      {/* Dynamic 3D Interactive Puzzle Assembly Scene (Snapping into place) */}
-      <Puzzle3DScene />
+      {/* Dynamic 3D Interactive Cyber Core (Wireframe + Satellites) */}
+      <Dynamic3DCore />
 
-      {/* Balanced Symmetrical 3D Puzzle Pieces (2 on Left, 2 on Right) */}
+      {/* Spaced 3D Telemetry Cards — Cleanly placed in the 4 corners */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
-        {/* ─── LEFT FLANK: CARD 1 (Top-Left: DOM Anchor Patch) ─── */}
+        {/* ─── TOP-LEFT CARD: Patch Piece #01 ─── */}
         <Dynamic3DPuzzlePiece
           baseRotateX={8}
           baseRotateY={-12}
           baseRotateZ={-4}
-          depth={1.05}
+          depth={0.9}
           floatSpeed={0.9}
-          floatAmp={6}
+          floatAmp={4}
           phaseOffset={0}
-          className="absolute top-14 sm:top-18 left-4 sm:left-10 lg:left-14 w-52 sm:w-60 pointer-events-auto group cursor-pointer"
+          className="absolute top-8 sm:top-12 left-4 sm:left-10 lg:left-16 w-52 sm:w-60 pointer-events-auto group cursor-pointer"
         >
           <div className="relative p-4 rounded-2xl cyber-glass border border-primary-container/40 shadow-[0_8px_32px_rgba(255,59,129,0.15)] group-hover:border-primary-container group-hover:shadow-[0_0_25px_rgba(255,59,129,0.45)] transition-all">
-            {/* Jigsaw connector tab pointing toward center */}
-            <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-surface-container border-2 border-primary-container/50 group-hover:border-primary-container group-hover:scale-110 shadow-sm transition-all" />
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center gap-1.5">
                 <span className="size-2 rounded-full bg-primary-container animate-pulse" />
                 <span className="font-mono text-[10px] text-primary tracking-wider uppercase font-bold">PATCH PIECE #01</span>
               </div>
-              <span className="font-mono text-[9px] px-1.5 py-0.5 rounded bg-emerald-950/60 text-emerald-400 border border-emerald-500/40">SNAPPED</span>
+              <span className="font-mono text-[9px] px-1.5 py-0.5 rounded bg-primary-container/20 text-primary">v2-EDGE</span>
             </div>
             <p className="font-mono text-xs text-white font-bold truncate">target: "button.checkout"</p>
             <p className="font-mono text-[10px] text-on-surface-variant mt-1.5 flex items-center justify-between">
@@ -54,20 +52,42 @@ export function Landing() {
           </div>
         </Dynamic3DPuzzlePiece>
 
-        {/* ─── LEFT FLANK: CARD 2 (Bottom-Left: Rollback & Audit) ─── */}
+        {/* ─── TOP-RIGHT CARD: Live Runtime ─── */}
+        <Dynamic3DPuzzlePiece
+          baseRotateX={8}
+          baseRotateY={12}
+          baseRotateZ={4}
+          depth={0.9}
+          floatSpeed={0.88}
+          floatAmp={4}
+          phaseOffset={1.8}
+          className="absolute top-8 sm:top-12 right-4 sm:right-10 lg:right-16 w-52 sm:w-60 pointer-events-auto group cursor-pointer"
+        >
+          <div className="relative p-4 rounded-2xl cyber-glass border border-secondary-container/60 shadow-[0_8px_32px_rgba(125,42,83,0.3)] group-hover:border-secondary group-hover:shadow-[0_0_25px_rgba(255,59,129,0.4)] transition-all">
+            <div className="flex items-center justify-between mb-2">
+              <span className="font-mono text-[10px] text-[#ffb0cf] uppercase tracking-wider font-bold">LIVE RUNTIME</span>
+              <span className="font-mono text-[9px] px-1.5 py-0.5 rounded bg-primary-container/20 text-primary font-bold">ACTIVE</span>
+            </div>
+            <p className="font-mono text-xs text-white font-bold truncate">Self-Healing DOM Engine</p>
+            <p className="font-mono text-[10px] text-outline mt-1.5 flex items-center justify-between">
+              <span>Hotfix Mode</span>
+              <span className="text-primary font-semibold">Zero Rebuild</span>
+            </p>
+          </div>
+        </Dynamic3DPuzzlePiece>
+
+        {/* ─── BOTTOM-LEFT CARD: Rollback & Audit ─── */}
         <Dynamic3DPuzzlePiece
           baseRotateX={-6}
           baseRotateY={-10}
           baseRotateZ={3}
-          depth={0.9}
+          depth={0.8}
           floatSpeed={1.05}
-          floatAmp={5}
+          floatAmp={4}
           phaseOffset={3.2}
-          className="absolute bottom-20 sm:bottom-28 left-4 sm:left-10 lg:left-14 w-52 sm:w-60 pointer-events-auto group cursor-pointer hidden sm:block"
+          className="absolute bottom-16 sm:bottom-20 left-4 sm:left-10 lg:left-16 w-52 sm:w-60 pointer-events-auto group cursor-pointer hidden sm:block"
         >
           <div className="relative p-4 rounded-2xl cyber-glass border border-primary-container/30 shadow-[0_8px_32px_rgba(255,59,129,0.12)] group-hover:border-primary-container group-hover:shadow-[0_0_25px_rgba(255,59,129,0.35)] transition-all">
-            {/* Jigsaw connector tab pointing toward center */}
-            <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-surface-container border-2 border-primary-container/40 group-hover:border-primary-container group-hover:scale-110 transition-all" />
             <div className="flex items-center justify-between mb-2">
               <span className="font-mono text-[10px] text-primary uppercase tracking-wider font-bold">ROLLBACK SAFE</span>
               <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -80,46 +100,18 @@ export function Landing() {
           </div>
         </Dynamic3DPuzzlePiece>
 
-        {/* ─── RIGHT FLANK: CARD 3 (Top-Right: Interlocking Live Runtime) ─── */}
-        <Dynamic3DPuzzlePiece
-          baseRotateX={8}
-          baseRotateY={12}
-          baseRotateZ={4}
-          depth={1.1}
-          floatSpeed={0.88}
-          floatAmp={7}
-          phaseOffset={1.8}
-          className="absolute top-14 sm:top-18 right-4 sm:right-10 lg:right-14 w-52 sm:w-60 pointer-events-auto group cursor-pointer"
-        >
-          <div className="relative p-4 rounded-2xl cyber-glass border border-secondary-container/60 shadow-[0_8px_32px_rgba(125,42,83,0.3)] group-hover:border-secondary group-hover:shadow-[0_0_25px_rgba(255,59,129,0.4)] transition-all">
-            {/* Jigsaw connector indent facing left toward center */}
-            <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-surface-container-lowest border-2 border-secondary-container/60 group-hover:border-primary-container transition-all" />
-            <div className="flex items-center justify-between mb-2">
-              <span className="font-mono text-[10px] text-[#ffb0cf] uppercase tracking-wider font-bold">LIVE RUNTIME</span>
-              <span className="font-mono text-[9px] px-1.5 py-0.5 rounded bg-primary-container/20 text-primary font-bold">v2-EDGE</span>
-            </div>
-            <p className="font-mono text-xs text-white font-bold truncate">Self-Healing DOM Engine</p>
-            <p className="font-mono text-[10px] text-outline mt-1.5 flex items-center justify-between">
-              <span>Hotfix Mode</span>
-              <span className="text-primary font-semibold">Zero Rebuild</span>
-            </p>
-          </div>
-        </Dynamic3DPuzzlePiece>
-
-        {/* ─── RIGHT FLANK: CARD 4 (Bottom-Right: Playwright Verification) ─── */}
+        {/* ─── BOTTOM-RIGHT CARD: Playwright Verification ─── */}
         <Dynamic3DPuzzlePiece
           baseRotateX={-6}
           baseRotateY={10}
           baseRotateZ={-3}
-          depth={0.95}
+          depth={0.85}
           floatSpeed={1.1}
-          floatAmp={6}
+          floatAmp={4}
           phaseOffset={4.8}
-          className="absolute bottom-20 sm:bottom-28 right-4 sm:right-10 lg:right-14 w-52 sm:w-60 pointer-events-auto group cursor-pointer hidden sm:block"
+          className="absolute bottom-16 sm:bottom-20 right-4 sm:right-10 lg:right-16 w-52 sm:w-60 pointer-events-auto group cursor-pointer hidden sm:block"
         >
           <div className="relative p-4 rounded-2xl cyber-glass border border-outline-variant/40 shadow-lg group-hover:border-primary-container/80 transition-all">
-            {/* Jigsaw connector indent facing left toward center */}
-            <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-surface-container-lowest border-2 border-outline-variant/50 group-hover:border-primary-container transition-all" />
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center gap-1.5">
                 <span className="material-symbols-outlined text-[13px] text-[#38bdf8]">verified</span>
